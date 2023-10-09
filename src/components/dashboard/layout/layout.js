@@ -1,15 +1,24 @@
+import { SidebarData } from '@/components/DummyData'
+import Link from 'next/link'
 import React from 'react'
-
+import Logout from '../../../../public/dashboard/icons/Logout'
+import cls from 'classnames'
+import styles from './layout.module.css'
+import Profile from '../../../../public/dashboard/icons/Profile'
+import { useRouter } from 'next/router'
+import Sidebar from './sidebar'
+import Header from './header'
 const DashboardLayout = ({ children }) => {
+  const { route } = useRouter()
+
+  const currentRoute = route.split('/dashboard')[1]
+  const navTitle = SidebarData.filter((route) => route?.url.toLowerCase() === currentRoute?.toLowerCase())[0]
+
   return (
     <main className={`flex h-screen bg-[#FAFAFA]`}>
-      <section className='w-[300px] bg-white  h-full shadow-sm'>
-
-      </section>
+      <Sidebar navItem={SidebarData} currentRoute={currentRoute} />
       <section className='w-full'>
-        <nav className='w-full h-[100px] border-2  rounded-b-2xl'>
-
-        </nav>
+        <Header navTitle={navTitle} />
         {children}
       </section>
     </main>
