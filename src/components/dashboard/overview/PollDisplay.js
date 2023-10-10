@@ -5,6 +5,7 @@ import PollVoters from '../../../../public/dashboard/icons/PollVoters'
 import DateIcon from '../../../../public/dashboard/icons/DateIcon'
 import Button from '@/components/form/Button'
 import EditButton from '../../../../public/dashboard/icons/EditButton'
+import Link from 'next/link'
 
 
 const statusCheck = (value) => {
@@ -22,35 +23,14 @@ const statusCheck = (value) => {
 
 
 const PollDisplay = ({ data }) => {
+
   const handleViewResult = (data) => {
-    console.log(data)
+
+    // console.log(data)
   }
 
   return (
     <section className='m-6 '>
-      <aside className='flex my-12 gap-6 items-center' >
-        <div className='border-[#095494] border rounded-[10px] p-[20px] text-[#095494] w-[300px] bg-[#F0F8FF] flex gap-3'>
-          <div className='py-5'> <PollQuestion /></div>
-          <div className='flex flex-col '>
-            <h3 className='font-bold text-[32px]' >3</h3>
-            <h3 className='text-[16px]'>Poll questions</h3>
-          </div>
-        </div>
-        <div className='border-[#CE6300] border rounded-[10px] p-[20px] text-[#CE6300] w-[300px] bg-[#FFF8F2] flex gap-3 capitalize'>
-          <div className='py-5'> <PollOption /></div>
-          <div className='flex flex-col '>
-            <h3 className='font-bold text-[32px]' >12</h3>
-            <h3 className='text-[16px]'>Poll options</h3>
-          </div>
-        </div>
-        <div className='border-[#026C1A] border rounded-[10px] p-[20px] text-[#026C1A] w-[300px] bg-[#F4FFF7] flex gap-3 capitalize'>
-          <div className='py-5'> <PollVoters /></div>
-          <div className='flex flex-col '>
-            <h3 className='font-bold text-[32px]' >12</h3>
-            <h3 className='text-[16px]'>Poll options</h3>
-          </div>
-        </div>
-      </aside>
 
       <main className='flex gap-5 flex-wrap  mb-28'>
 
@@ -99,7 +79,9 @@ const PollDisplay = ({ data }) => {
                   </div>
                 ) : (
                   <div className='p-5'>
-                    <Button handleClick={() => handleViewResult(item)} text={"View result"} bg='#F0F8FF' style='' color='#095494' />
+                    <Link href={`/dashboard/overview/${item?.id}`} >
+                      <Button text={"View result"} bg='#F0F8FF' style='' color='#095494' />
+                    </Link>
                   </div>
                 )
               }

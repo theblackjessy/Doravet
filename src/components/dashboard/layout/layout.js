@@ -14,6 +14,7 @@ const DashboardLayout = ({ children }) => {
   const currentRoute = route.split('/dashboard')[1]
   const navTitle = SidebarData.filter((route) => route?.url.toLowerCase() === currentRoute?.toLowerCase())[0]
 
+
   return (
     <main className={`flex h-screen bg-[#FAFAFA] `}>
       <Sidebar navItem={SidebarData} currentRoute={currentRoute} />

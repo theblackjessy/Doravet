@@ -6,64 +6,14 @@ import CreatePoll from '@/components/dashboard/overview/createPoll'
 import PollForm from '@/components/dashboard/overview/pollForm'
 import PollDisplay from '@/components/dashboard/overview/PollDisplay'
 import DateIcon from '../../../../public/dashboard/icons/DateIcon'
+import PollQuestion from '../../../../public/dashboard/icons/PollQuestion'
+import PollOption from '../../../../public/dashboard/icons/PollOption'
+import PollVoters from '../../../../public/dashboard/icons/PollVoters'
+import { pollData } from '@/components/DummyData'
 
 
-const pollData = [
-  {
-    id: 1,
-    title: "Employee of the week",
-    desc: "The poll description goes here. You can type as many details as possible. Feel free. Knock yourself out. There is enough room for you. Okay! This should do!",
-    status: 0,
-    start: 'August 2, 2023 12:00pm',
-    end: 'August 2, 2023 12:00pm',
-    icon: <DateIcon />,
-    candidates: [
-      {
-        name: 'Highdan Varim',
-        votes: 20
-      },
-      {
-        name: 'Oshuporu',
-        votes: 20
-      }
-    ],
-    totalVotes: 33,
-    voters: 33
-  },
-  {
-    id: 2,
-    title: "Employee of the week",
-    desc: "The poll description goes here. You can type as many details as possible. Feel free. Knock yourself out. There is enough room for you. Okay! This should do!",
-    status: 1,
-    start: 'August 2, 2023 12:00pm',
-    end: 'August 2, 2023 12:00pm',
-    icon: <DateIcon />,
 
-  },
-  {
-    id: 3,
-    title: "Employee of the week",
-    desc: "The poll description goes here. You can type as many details as possible. Feel free. Knock yourself out. There is enough room for you. Okay! This should do!",
-    status: 2,
-    start: 'August 2, 2023 12:00pm',
-    end: 'August 2, 2023 12:00pm',
-    icon: <DateIcon />,
-    candidates: [
-      {
-        name: 'Agba Ogidan',
-        votes: 20
-      },
-      {
-        name: 'Dudu Osun',
-        votes: 25
-      }
-    ],
-    totalVotes: 33,
-    voters: 33
-
-  }
-]
-const Dashboard = () => {
+const Dashboard = ({ children }) => {
   const [polls, setPolls] = useState(pollData);
   const [createPoll, setCreatePoll] = useState(false)
 
@@ -73,11 +23,32 @@ const Dashboard = () => {
   }
   return (
     <section className='w-full h-screen overflow-y-scroll'>
+      <aside className='flex my-12 gap-6 items-center' >
+        <div className='border-[#095494] border rounded-[10px] p-[20px] text-[#095494] w-[300px] bg-[#F0F8FF] flex gap-3'>
+          <div className='py-5'> <PollQuestion /></div>
+          <div className='flex flex-col '>
+            <h3 className='font-bold text-[32px]' >3</h3>
+            <h3 className='text-[16px]'>Poll questions</h3>
+          </div>
+        </div>
+        <div className='border-[#CE6300] border rounded-[10px] p-[20px] text-[#CE6300] w-[300px] bg-[#FFF8F2] flex gap-3 capitalize'>
+          <div className='py-5'> <PollOption /></div>
+          <div className='flex flex-col '>
+            <h3 className='font-bold text-[32px]' >12</h3>
+            <h3 className='text-[16px]'>Poll options</h3>
+          </div>
+        </div>
+        <div className='border-[#026C1A] border rounded-[10px] p-[20px] text-[#026C1A] w-[300px] bg-[#F4FFF7] flex gap-3 capitalize'>
+          <div className='py-5'> <PollVoters /></div>
+          <div className='flex flex-col '>
+            <h3 className='font-bold text-[32px]' >12</h3>
+            <h3 className='text-[16px]'>Poll options</h3>
+          </div>
+        </div>
+      </aside>
       {
         !createPoll ? (
-          <aside>
-            {polls.length < 1 ? (<CreatePoll createPoll={handleCreatePoll} />) : (<PollDisplay data={polls} />)}
-          </aside>
+          polls.length < 1 ? (<CreatePoll createPoll={handleCreatePoll} />) : (children ? children : <PollDisplay data={polls} />)
         ) : (
           <PollForm />
         )
@@ -87,10 +58,10 @@ const Dashboard = () => {
 }
 
 
-Dashboard.getLayout = function getLayout(page) {
+Dashboard.getLayout = function getLayout() {
   return (
     <DashboardLayout>
-      <Dashboard>{page}</Dashboard>
+      <Dashboard />
     </DashboardLayout>
   )
 }
