@@ -15,11 +15,13 @@ const DashboardLayout = ({ children }) => {
   const navTitle = SidebarData.filter((route) => route?.url.toLowerCase() === currentRoute?.toLowerCase())[0]
 
   return (
-    <main className={`flex h-screen bg-[#FAFAFA]`}>
+    <main className={`flex h-screen bg-[#FAFAFA] `}>
       <Sidebar navItem={SidebarData} currentRoute={currentRoute} />
-      <section className='w-full'>
+      <section className='w-full overflow-hidden'>
         <Header navTitle={navTitle} />
-        {children}
+        <article className='p-6 overflow-y-scroll'>
+          {children}
+        </article>
       </section>
     </main>
   )

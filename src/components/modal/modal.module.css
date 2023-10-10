@@ -1,0 +1,19 @@
+.modal {
+  @apply w-[500px] z-10 rounded-lg fixed bg-white overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+/* .modal::after {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: black;
+  content: '';
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  z-index: -1;
+} */
+
+.modal_wrapper {
+  @apply absolute w-screen h-screen bg-black z-10 opacity-60  top-0 left-0;
+}
