@@ -60,7 +60,7 @@ const Register = () => {
             />
 
           </div>
-          <Button text="Register" />
+          <Button fullWidth text="Register" />
           <p className='text-[16px] my-3 '>
             <span>Already have an account?</span>
             <Link href={'login'}>

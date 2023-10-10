@@ -37,7 +37,7 @@ export default function Login() {
             <p className='text-right text-[14px] text-[#095494]'>Forgot Password?</p>
           </div>
 
-          <Button text="Log in" />
+          <Button fullWidth text="Log in" />
           <p className='text-[16px] my-3 cursor-pointer'>
             <span>Don’t have an account?</span>
             <Link href={'register'} className='cursor-pointer'>
