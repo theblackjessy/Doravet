@@ -7,9 +7,9 @@ const colors = {
   white: "#fff"
 }
 
-const Button = ({ text, style = "w-full text-white", bg = "primary", handleClick }) => {
+const Button = ({ text, style = "w-full", bg = "#095494", color = "#FFF", handleClick }) => {
   return (
-    <button type='button' onClick={handleClick} className={cls(`text-center cursor-pointer block rounded-md py-3 px-4 my-2 bg-[${colors[bg]}] `, style)}>{text}</button>
+    <button type='button' onClick={handleClick} className={cls(`text-center cursor-pointer block rounded-md py-3 px-4 my-2 bg-[${bg}] text-[${color}]`, style)}>{text}</button>
 
   )
 }

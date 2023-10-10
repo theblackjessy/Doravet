@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <main className={`flex h-screen bg-[#FAFAFA] `}>
       <Sidebar navItem={SidebarData} currentRoute={currentRoute} />
-      <section className='w-full overflow-hidden'>
+      <section className='w-full overflow-hidden '>
         <Header navTitle={navTitle} />
         <article className='p-6 overflow-y-scroll'>
           {children}

@@ -3,7 +3,7 @@ import Profile from '../../../../public/dashboard/icons/Profile'
 
 const Header = ({ navTitle }) => {
   return (
-    <header className='w-full h-[80px] border-2 rounded-bl-2xl items-center flex'>
+    <header className='w-full h-[80px] border-2 rounded-bl-2xl items-center flex bg-white'>
       <nav className='w-full flex justify-between items-center px-8'>
         <h3 className='font-semibold text-2xl capitalize'>{navTitle?.name}</h3>
         <section className='f gap-2' >
