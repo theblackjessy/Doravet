@@ -35,7 +35,7 @@ const PollDisplay = ({ data }) => {
       <main className='flex gap-5 flex-wrap  mb-28'>
 
         {data.map((item, id) => (
-          <aside className='w-[500px] border rounded-md  flex flex-col' key={id}>
+          <aside className='w-full md:w-[500px] border rounded-md  flex flex-col' key={id}>
             <div className='p-5'>
               <div className='flex justify-between items-center'>
                 <h3 className='font-bold text-[16px]'>{item.title}</h3>
@@ -48,16 +48,16 @@ const PollDisplay = ({ data }) => {
                 </p>
               </div>
               <p className='text-[#939393] font-[14px] py-4'>{item.desc}</p>
-              <aside className='flex justify-between py-6  font-[14px] text-[#4F4F4F]'>
-                <div className='flex flex-col'>
-                  <div className='flex gap-1 items-center text-[#4F4F4F]'>
+              <aside className='md:flex justify-between py-6  font-[14px] text-[#4F4F4F]'>
+                <div className='  flex flex-col'>
+                  <div className='my-4 md:my-0 flex gap-1 items-center text-[#4F4F4F]'>
                     <DateIcon />
                     <p>Start date</p>
                   </div>
                   <p>{item.start}</p>
                 </div>
                 <div>
-                  <div className='flex gap-1 items-center'>
+                  <div className='my-4 md:my-0 flex gap-1 items-center'>
                     <DateIcon />
                     <p>End date</p>
                   </div>
