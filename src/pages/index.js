@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <section
-      className={`h-screen p-10 w-full ${inter.className}`}
+      className={`h-screen p-3 md:p-10 w-full ${inter.className}`}
     >
       <nav className='flex justify-between' >
         <div className='flex gap-2 justify-center items-center'>
