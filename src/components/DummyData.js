@@ -84,11 +84,11 @@ export const pollData = [
     candidates: [
       {
         name: 'Highdan Varim',
-        votes: 20
+        votes: 25
       },
       {
         name: 'Oshuporu',
-        votes: 20
+        votes: 18
       }
     ],
     totalVotes: 33,
@@ -102,7 +102,18 @@ export const pollData = [
     start: 'August 2, 2023 12:00pm',
     end: 'August 2, 2023 12:00pm',
     icon: <DateIcon />,
-
+    candidates: [
+      {
+        name: 'Agba Ogidan',
+        votes: 20
+      },
+      {
+        name: 'Dudu Osun',
+        votes: 25
+      }
+    ],
+    totalVotes: 33,
+    voters: 33
   },
   {
     id: 3,
