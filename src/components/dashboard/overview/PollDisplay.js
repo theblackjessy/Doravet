@@ -74,13 +74,13 @@ const PollDisplay = ({ data }) => {
                     <div className='flex justify-between'>
                       <p className=' w-[300px] py-3 border border-gray-300 px-3 text-[14px] my-2 rounded-md '>
                         https://Dorav.com/polls/27653ai...</p>
-                      <Button text={"Copy"} bg='#F0F8FF' style='' color='#095494' />
+                      <Button text={"Copy"} bg='primary-light' style='' color='primary' />
                     </div>
                   </div>
                 ) : (
                   <div className='p-5'>
                     <Link href={`/dashboard/overview/${item?.id}`} >
-                      <Button text={"View result"} bg='#F0F8FF' style='' color='#095494' />
+                      <Button text={"View result"} bg='primary-light' style='' color='primary' />
                     </Link>
                   </div>
                 )
