@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PollQuestion from '../../../../public/dashboard/icons/PollQuestion'
 import PollOption from '../../../../public/dashboard/icons/PollOption'
 import PollVoters from '../../../../public/dashboard/icons/PollVoters'
@@ -6,7 +6,7 @@ import DateIcon from '../../../../public/dashboard/icons/DateIcon'
 import Button from '@/components/form/Button'
 import EditButton from '../../../../public/dashboard/icons/EditButton'
 import Link from 'next/link'
-
+import Upcoming from './upComing'
 
 const statusCheck = (value) => {
   switch (value) {
@@ -23,12 +23,13 @@ const statusCheck = (value) => {
 
 
 const PollDisplay = ({ data }) => {
-
   const handleViewResult = (data) => {
 
-    // console.log(data)
   }
 
+  const handleLinkCopy = () => {
+    console.log('copied')
+  }
   return (
     <section className='m-6 '>
 
@@ -68,15 +69,7 @@ const PollDisplay = ({ data }) => {
             <footer className=' h-full align-baseline flex items-end'>
               {
                 item.status === 2 ? (
-                  <div className='border-t-[1px]  p-5 w-full'>
-                    <h3 className='font-bold text-[16px]'> Poll URL</h3>
-                    <p className='text-[#4F4F4F] text-[14px]'> Accessible only after poll in launched</p>
-                    <div className='flex justify-between'>
-                      <p className=' w-[300px] py-3 border border-gray-300 px-3 text-[14px] my-2 rounded-md '>
-                        https://Dorav.com/polls/27653ai...</p>
-                      <Button text={"Copy"} bg='primary-light' style='' color='primary' />
-                    </div>
-                  </div>
+                  <Upcoming />
                 ) : (
                   <div className='p-5'>
                     <Link href={`/dashboard/overview/${item?.id}`} >
