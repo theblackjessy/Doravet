@@ -1,9 +1,17 @@
 import Button from '@/components/form/Button'
 import TextInput from '@/components/form/TextInput'
-import React from 'react'
+import React, { useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form';
+import Delete from '../../../../public/dashboard/icons/Delete';
+import Modal from '@/components/modal';
 
 const PollForm = () => {
+  const [open, setOpen] = useState(false);
+
+  const toggleModal = () => {
+    setOpen(prev => !prev)
+  }
+
 
   const { control, register, formState, handleSubmit } = useForm({
     defaultValues: {
@@ -22,27 +30,41 @@ const PollForm = () => {
 
   console.log(fields)
   return (
-    <aside className='justify-center mt-10 flex mb-[130px]'>
-      <form className='md:w-[500px] flex flex-col  '>
-        <section className='rounded-lg border p-4 bg-white my-4'>
-          <TextInput label={'Title'} placeholder={'e.g Headies Award,Presidential Election'} type={'text'} />
-          <TextInput label={'Description'} placeholder={'Describe what the poll is about'} type={'text'} />
-          <div className='flex justify-between items-center  w-full gap-4'>
-            <TextInput label={'Start Date'} placeholder={'Describe what the poll is about'} type={'text'} />
-            <TextInput label={'End date'} placeholder={'Describe what the poll is about'} type={'text'} />
-          </div>
-        </section>
-        <section className='rounded-lg border p-4 bg-white my-4'>
+    <>
+      <aside className='justify-center mt-10 flex mb-[130px]'>
+        <form className='md:w-[500px] flex flex-col  '>
+          <section className='rounded-lg border p-4 bg-white my-4'>
+            <TextInput label={'Title'} placeholder={'e.g Headies Award,Presidential Election'} type={'text'} />
+            <TextInput label={'Description'} placeholder={'Describe what the poll is about'} type={'text'} />
+            <div className='flex justify-between items-center  w-full gap-4'>
+              <TextInput label={'Start Date'} placeholder={'Describe what the poll is about'} type={'text'} />
+              <TextInput label={'End date'} placeholder={'Describe what the poll is about'} type={'text'} />
+            </div>
+          </section>
+          <section className='rounded-lg border p-4 bg-white my-4'>
 
-          <form>
-            <input
+            <form>
+              <input
 
-              placeholder={`Question 1}`}
-              className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
-            // {...register(`field.Options.${index}`)}
-            />
-          </form>
-          {/* {fields.map((field, index) => (
+                placeholder={`Question 1}`}
+                className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
+              // {...register(`field.Options.${index}`)}
+              />
+              <aside className='my-2'>
+                <div className='flex items-center my-2' >
+                  <p className='w-4 h-4 rounded-full border border-gray-300'></p>
+                  <p className='mx-4 text-[#4F4F4F]'>Option 1</p>
+                </div>
+                <div className='flex items-center my-2'>
+                  <p className='w-4 h-4 rounded-full border border-gray-300'></p>
+                  <p className='mx-4 text-[#095494]'>Add Option</p>
+                </div>
+                <div className='flex justify-end cursor-pointer' onClick={toggleModal}>
+                  <Delete fill='#4F4F4F' />
+                </div>
+              </aside>
+            </form>
+            {/* {fields.map((field, index) => (
             <>
               <input
                 key={field.id}
@@ -60,13 +82,27 @@ const PollForm = () => {
               }
             </>
           ))} */}
+          </section>
+          <section className='rounded-lg border p-4 bg-white flex justify-between items-center gap-10'>
+            <Button bg='primary-light' color='primary' text={'Add Question'} />
+            <Button text={'Launch Poll'} />
+          </section>
+        </form>
+      </aside>
+      <Modal open={open} toggleModal={toggleModal}>
+        <section className='text-center py-3'>
+          <p className='bg-[#FFDDDD] flex justify-center items-center w-10 h-10 rounded-full mx-auto my-3'>
+            <Delete />
+          </p>
+          <h3 className='font-bold'>Delete Poll?</h3>
+          <p className='text-[14px] w-[300px] mx-auto my-4'>Are you sure you want to delete this poll? This action cannot be undone</p>
+          <div className='flex justify-evenly items-center w-[300px] mx-auto'>
+            <Button text={'Yes,Delete'} className={'bg-red-600'} />
+            <Button text={'Cancel'} handleClick={toggleModal} className={' bg-[#EAE9E9]'} color='text-[#4F4F4F]' />
+          </div>
         </section>
-        <section className='rounded-lg border p-4 bg-white flex justify-between items-center gap-10'>
-          <Button text={'Add Question'} />
-          <Button text={'Launch Poll'} />
-        </section>
-      </form>
-    </aside>
+      </Modal>
+    </>
   )
 }
 

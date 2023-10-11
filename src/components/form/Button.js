@@ -1,11 +1,7 @@
 import React from 'react'
 import cls from 'classnames'
 
-const colors = {
-  primary: '#095494',
-  secondary: 'red',
-  white: "#fff"
-}
+
 
 const Button = ({ text, fullWidth = false, bg = "primary", color = "white", handleClick, className }) => {
   return (
