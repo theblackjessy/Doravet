@@ -34,7 +34,15 @@ const PollForm = () => {
         </section>
         <section className='rounded-lg border p-4 bg-white my-4'>
 
-          {fields.map((field, index) => (
+          <form>
+            <input
+
+              placeholder={`Question 1}`}
+              className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
+            // {...register(`field.Options.${index}`)}
+            />
+          </form>
+          {/* {fields.map((field, index) => (
             <>
               <input
                 key={field.id}
@@ -51,7 +59,7 @@ const PollForm = () => {
                 )
               }
             </>
-          ))}
+          ))} */}
         </section>
         <section className='rounded-lg border p-4 bg-white flex justify-between items-center gap-10'>
           <Button text={'Add Question'} />
