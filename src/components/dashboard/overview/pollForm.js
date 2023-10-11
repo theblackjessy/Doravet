@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form';
 import Delete from '../../../../public/dashboard/icons/Delete';
 import Modal from '@/components/modal';
+import QuestionFields from './questionFields';
 
 const PollForm = () => {
   const [open, setOpen] = useState(false);
@@ -41,48 +42,9 @@ const PollForm = () => {
               <TextInput label={'End date'} placeholder={'Describe what the poll is about'} type={'text'} />
             </div>
           </section>
-          <section className='rounded-lg border p-4 bg-white my-4'>
-
-            <form>
-              <input
-
-                placeholder={`Question 1}`}
-                className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
-              // {...register(`field.Options.${index}`)}
-              />
-              <aside className='my-2'>
-                <div className='flex items-center my-2' >
-                  <p className='w-4 h-4 rounded-full border border-gray-300'></p>
-                  <p className='mx-4 text-[#4F4F4F]'>Option 1</p>
-                </div>
-                <div className='flex items-center my-2'>
-                  <p className='w-4 h-4 rounded-full border border-gray-300'></p>
-                  <p className='mx-4 text-[#095494]'>Add Option</p>
-                </div>
-                <div className='flex justify-end cursor-pointer' onClick={toggleModal}>
-                  <Delete fill='#4F4F4F' />
-                </div>
-              </aside>
-            </form>
-            {/* {fields.map((field, index) => (
-            <>
-              <input
-                key={field.id}
-                placeholder={`Options ${index + 1}`}
-                className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
-                {...register(`field.Options.${index}`)}
-              />
-              {
-                fields.length - 1 === index && (
-                  <>
-                    <p onClick={() => append({ option: "my name", id: 1 })}>Add Option</p>
-                    {index > 0 && (<p onClick={() => remove(index)}>Remove Option</p>)}
-                  </>
-                )
-              }
-            </>
-          ))} */}
-          </section>
+          <form>
+            <QuestionFields toggleModal={toggleModal} />
+          </form>
           <section className='rounded-lg border p-4 bg-white flex justify-between items-center gap-10'>
             <Button bg='primary-light' color='primary' text={'Add Question'} />
             <Button text={'Launch Poll'} />
@@ -107,3 +69,23 @@ const PollForm = () => {
 }
 
 export default PollForm
+
+
+{/* {fields.map((field, index) => (
+            <>
+              <input
+                key={field.id}
+                placeholder={`Options ${index + 1}`}
+                className='w-full py-3 border border-gray-300 px-3 text-[12px] my-2 rounded-md capitalize'
+                {...register(`field.Options.${index}`)}
+              />
+              {
+                fields.length - 1 === index && (
+                  <>
+                    <p onClick={() => append({ option: "my name", id: 1 })}>Add Option</p>
+                    {index > 0 && (<p onClick={() => remove(index)}>Remove Option</p>)}
+                  </>
+                )
+              }
+            </>
+          ))} */}
