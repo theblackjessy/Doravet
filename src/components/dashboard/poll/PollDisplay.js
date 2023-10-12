@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import PollQuestion from '../../../../public/dashboard/icons/PollQuestion'
-import PollOption from '../../../../public/dashboard/icons/PollOption'
-import PollVoters from '../../../../public/dashboard/icons/PollVoters'
 import DateIcon from '../../../../public/dashboard/icons/DateIcon'
 import Button from '@/components/form/Button'
 import EditButton from '../../../../public/dashboard/icons/EditButton'
 import Link from 'next/link'
-import Upcoming from './upComing'
+import Upcoming from '../overview/upComing'
 
 const statusCheck = (value) => {
   switch (value) {
@@ -23,19 +20,13 @@ const statusCheck = (value) => {
 
 
 const PollDisplay = ({ data }) => {
-  const handleViewResult = (data) => {
 
-  }
-
-  const handleLinkCopy = () => {
-    console.log('copied')
-  }
   return (
     <section className='m-6 '>
 
       <main className='flex gap-5 flex-wrap  mb-28'>
 
-        {data.map((item, id) => (
+        {data?.map((item, id) => (
           <aside className='w-full md:w-[500px] border rounded-md  flex flex-col' key={id}>
             <div className='p-5'>
               <div className='flex justify-between items-center'>

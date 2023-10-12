@@ -1,9 +1,22 @@
 import DashboardLayout from '@/components/dashboard/layout/layout'
-import React from 'react'
+import PollStats from '@/components/dashboard/poll/pollStatistics'
+import React, { useState } from 'react'
+import { pollData } from '@/components/DummyData'
+import PollDisplay from '@/components/dashboard/poll/PollDisplay'
 
 const Poll = () => {
+  const [polls, setPolls] = useState(pollData);
+
   return (
-    <div>Poll</div>
+    <div className='w-full h-screen overflow-y-scroll'>
+      {
+        polls.length > 0 && (
+          <PollStats />
+        )
+      }
+
+      <PollDisplay data={polls} />
+    </div>
   )
 }
 
