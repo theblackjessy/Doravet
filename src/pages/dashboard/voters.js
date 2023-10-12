@@ -3,10 +3,14 @@ import DashboardLayout from '@/components/dashboard/layout/layout'
 import React, { useState } from 'react'
 import Delete from '../../../public/dashboard/icons/Delete'
 import Modal from '@/components/modal'
+import Button from '@/components/form/Button'
 
 const Voters = () => {
   const [open, setOpen] = useState(false);
 
+  const toggleModal = () => {
+    setOpen(prev => !prev)
+  }
   const handleClose = () => setOpen(false)
   const handleDeleteClick = (data) => {
     setOpen(true)
@@ -39,7 +43,19 @@ const Voters = () => {
           </aside>
         </article>
       </section>
-      <Modal open={open} handleModalClose={handleClose} />
+      <Modal open={open} toggleModal={toggleModal} >
+        <section className='text-center py-3'>
+          <p className='bg-[#FFDDDD] flex justify-center items-center w-10 h-10 rounded-full mx-auto my-3'>
+            <Delete />
+          </p>
+          <h3 className='font-bold'>Delete Voter?</h3>
+          <p className='text-[14px] w-[300px] mx-auto my-4'>Are you sure you to delete this voter? This action cannot be undone</p>
+          <div className='flex justify-evenly items-center w-[300px] mx-auto'>
+            <Button text={'Yes,Delete'} className={'bg-red-600'} />
+            <Button text={'Cancel'} handleClick={toggleModal} className={' bg-[#EAE9E9]'} color='text-[#4F4F4F]' />
+          </div>
+        </section>
+      </Modal>
     </>
   )
 }
