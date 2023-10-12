@@ -22,7 +22,7 @@ const statusCheck = (value) => {
 const PollDisplay = ({ data }) => {
 
   return (
-    <section className='m-6 '>
+    <section className='my-6 '>
 
       <main className='flex gap-5 flex-wrap  mb-28'>
 
@@ -63,7 +63,7 @@ const PollDisplay = ({ data }) => {
                   <Upcoming />
                 ) : (
                   <div className='p-5'>
-                    <Link href={`/dashboard/overview/${item?.id}`} >
+                    <Link href={`/dashboard/poll/${item?.id}`} >
                       <Button text={"View result"} bg='primary-light' style='' color='primary' />
                     </Link>
                   </div>

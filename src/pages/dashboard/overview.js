@@ -2,12 +2,10 @@ import DashboardLayout from '@/components/dashboard/layout/layout'
 import React, { useState } from 'react'
 import CreatePoll from '@/components/dashboard/overview/createPoll'
 import PollForm from '@/components/dashboard/overview/pollForm'
-import { pollData } from '@/components/DummyData'
 
 
 
-const Dashboard = ({ children }) => {
-  const [polls, setPolls] = useState(pollData);
+const Dashboard = () => {
   const [createPoll, setCreatePoll] = useState(false)
 
   const handleCreatePoll = () => {
@@ -24,13 +22,7 @@ const Dashboard = ({ children }) => {
           <PollForm />
         )
       }
-      {/* {
-        !createPoll ? (
-          polls.length < 1 ? (<CreatePoll createPoll={handleCreatePoll} />) : (children ? children : <PollDisplay data={polls} />)
-        ) : (
-          <PollForm />
-        )
-      } */}
+
     </section>
   )
 }
@@ -46,6 +38,3 @@ Dashboard.getLayout = function getLayout() {
 export default Dashboard
 
 
-// body::-webkit-scrollbar{
-//   display: none;
-// }

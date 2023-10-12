@@ -1,8 +1,8 @@
 import DashboardLayout from '@/components/dashboard/layout/layout'
 import React, { useState } from 'react'
-import Dashboard from '.'
 import { useParams } from 'next/navigation'
 import { pollData } from '@/components/DummyData'
+import Poll from '.'
 
 const PollResults = () => {
   // const { id } = useParams();
@@ -45,9 +45,9 @@ const PollResults = () => {
 PollResults.getLayout = function getLayout(page) {
   return (
     <DashboardLayout>
-      <Dashboard>
+      <Poll>
         {page}
-      </Dashboard>
+      </Poll>
     </DashboardLayout>
   )
 }

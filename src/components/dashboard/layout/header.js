@@ -5,7 +5,7 @@ const Header = ({ navTitle }) => {
   return (
     <header className='w-full h-[80px] border-2 rounded-bl-2xl items-center flex bg-white'>
       <nav className='w-full flex justify-between items-center px-8'>
-        <h3 className='font-semibold text-2xl capitalize'>{navTitle?.name || 'Overview'}</h3>
+        <h3 className='font-semibold text-2xl capitalize'>{navTitle?.name || 'Poll'}</h3>
         <section className='f gap-2' >
           <aside className='flex items-center'>
             <p className='mx-8 text-[#095494] font-semibold'>Support</p>
