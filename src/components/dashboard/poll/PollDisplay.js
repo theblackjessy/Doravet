@@ -57,7 +57,7 @@ const PollDisplay = ({ data }) => {
                 </div>
               </aside>
             </div>
-            <footer className=' h-full align-baseline flex items-end'>
+            <footer className='h-full align-baseline flex items-end'>
               {
                 item.status === 2 ? (
                   <Upcoming />

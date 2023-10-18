@@ -1,25 +1,36 @@
-import DashboardLayout from '@/components/dashboard/layout/layout'
 import React, { useState } from 'react'
-import { useParams } from 'next/navigation'
 import { pollData } from '@/components/DummyData'
-import Poll from '.'
+import Finger from '../../../public/dashboard/icons/Finger'
+import Ellipse from '../../../public/assets/icon/Ellipse'
+import Profile from '../../../public/dashboard/icons/Profile'
 
-const PollResults = () => {
-  // const { id } = useParams();
-
-  // const [polls, setPolls] = useState(pollData)
-  // const pollResult = pollData.filter((data) => Number(data.id) === Number(id))[0]
-
+const VoteStatistic= () => {
+ 
   const pollResult = pollData[1]
   return (
     <section>
-      
+          <nav className='flex justify-between text-[#000000] bg-[#fff] p-8' >
+      <div className='flex gap-2 justify-center items-center'>
+          <Finger />
+        <h3 className='text-[23.25px] text-[#095494] font-bold'>Doravet</h3>
+      </div>
+      <div className='flex justify-center items-center gap-5 text-[#000]'>
+      <h3 className='text-[16px] text-[#095494]'>View Results</h3>
+      <h3 className='text-[16px]'>Support</h3>
+      <aside className='flex justify-between items-center gap-3 p-[12px] rounded-lg bg-[#F5F2F6]'>
+          <p>Oxbaaf...75cec7</p>
+          <Ellipse />
+      </aside>
+      <Profile/>
+       </div>
+    </nav>
+    <main className='px-32 py-10'>
       <h3 className='text-2xl uppercase my-6 font-bold'>Employee of the year result</h3>
-      <article className='flex items-start gap-6'>
+      <article className='flex items-start '>
         <aside className='w-2/4'>
           {pollResult?.candidates?.map((data, id) => (
-            <div key={id} className='w-full mr-10 mb-6'>
-              <article className='p-4 rounded-md border'>
+            <div key={id} className='w-full mr-10 mb-6 '>
+              <article className='p-4 rounded-md border w-[600px]'>
                 <aside className='flex justify-between items-center'>
                   <p className='font-bold'>{data.name}</p>
                   <p>{Math.round((data.votes / pollResult.totalVotes) * 100)}%</p>
@@ -39,19 +50,12 @@ const PollResults = () => {
           <p className='my-2'>Registered Votes - 33</p>
         </aside>
       </article>
+      </main>
     </section>
   )
 }
 
-PollResults.getLayout = function getLayout(page) {
-  return (
-    <DashboardLayout>
-      <Poll>
-        {page}
-      </Poll>
-    </DashboardLayout>
-  )
-}
-export default PollResults
+
+export default VoteStatistic
 
 

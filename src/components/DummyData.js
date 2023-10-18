@@ -105,7 +105,11 @@ export const pollData = [
     candidates: [
       {
         name: 'Agba Ogidan',
-        votes: 20
+        votes: 10
+      },
+      {
+        name: 'Emmanuel Oshuporu',
+        votes: 30
       },
       {
         name: 'Dudu Osun',
@@ -136,5 +140,6 @@ export const pollData = [
     totalVotes: 33,
     voters: 33
 
-  }
+  },
+  
 ]
